@@ -1,0 +1,41 @@
+<root>
+    <replace>
+        <ReadNovelOnline>
+            <div class="d-flex align-items-center p-item-main title-main-hover" title="doc truyen online">
+                <img class="d-block img" src="./images/logo.png" />
+                <h1><a class="d-inline-block color-main-list">Doc Tryen Online</a></h1>
+            </div>
+        </ReadNovelOnline>
+
+        <UpLoad>
+            <div class="d-flex align-items-center p-item-main bg-upload" title="{{upLoadTitle}}">
+                <i class="d-block fa fa-cloud-upload color-main-list"></i>
+                <components:item-nav props="upLoadTitle"></components:item-nav>
+            </div>
+        </UpLoad>
+
+        <Search>
+            <form class="d-flex  p-item-main col" action="">
+                <input class="d-block col" type="text" placeholder="Tìm truyện, tác giả..." />
+                <button class="d-block ml-sub-item" type="button"><i class="d-block fa fa-search"></i></button>
+            </form>
+        </Search>
+
+        <LogIn>
+            <div class="max-778-none d-flex-edit align-items-center p-item-main log-in-hover" title="Đăng nhập">
+                <i class="d-block fa fa-user color-main-list"></i>
+                <components:item-nav props="'Thành viên'"></components:item-nav>
+            </div>
+        </LogIn>
+    </replace>
+
+    <replaceIsolate>
+        <ItemsList>
+            <div class="max-460-none d-flex-edit align-items-center p-item-main position-relative hover-show">
+                <i class="{{props.cssIcon}}"></i>
+                <components:item-nav props="props.itemName"></components:item-nav>
+                <components:table-of-list props="props.list"></components:table-of-list>
+            </div>
+        </ItemsList>
+    </replaceIsolate>
+</root>

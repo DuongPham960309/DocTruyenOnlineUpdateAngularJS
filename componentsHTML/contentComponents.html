@@ -1,0 +1,126 @@
+<root>
+    <replace>
+        <SuggestedNovels>
+            <section class="bg-white">
+                <components:title-section props="'TRUYỆN ĐỀ CỬ'"></components:title-section>
+                <components:render-type-novels></components:render-type-novels>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <content-components:carousels></content-components:carousels>
+                    <button class="carousel-control-prev size-angle-icon" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <i class="fa fa-angle-left size-icon"></i>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <i class="fa fa-angle-right size-icon"></i>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+        </SuggestedNovels>
+
+        <Carousels>
+            <div ng-controller="suggestedNovels" class="carousel-inner">
+                <div ng-repeat="carousel in carousels" class="{{carousel.cssCarousel}}">
+                    <div class="d-grid grid-novel">
+                        <div ng-repeat="novel in carousel.novels" class="position-relative">
+                            <img class="d-block" ng-src="{{novel.image}}" alt="" title="{{novel.title}}" />
+                            <div class="position-absolute start-0 end-0 bottom-0 bg-black-opacity p-above">
+                                <a class="d-block text-white text-center hover-t-decoration" title="{{novel.title}}" href="" components_name-novel=""></a>
+                                <p class="text-white text-center">{{novel.chapter}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Carousels>
+
+        <ShowNovels>
+            <section class="bg-white">
+                <components:title-section props="sectionTitle"></components:title-section>
+                <components:render-type-novels ng-if="typeNovels"></components:render-type-novels>
+                <div class="row cols-novel row-cols-4 m-0">
+                    <div ng-repeat="novel in novels" class="container-novel">
+                        <div><img ng-src="{{novel.image}}" alt="" title="{{novel.title}}" /></div>
+                        <div class="container-infor-novel">
+                            <a class="d-block text-dark hover-t-decoration" title="{{novel.title}}" href="" components_name-novel=""></a>
+                            <p class="text-secondary">{{novel.chapter}}</p>
+                        </div>
+                    </div>
+                </div>
+                <components:more props="sectionTitle"></components:more>
+            </section>
+        </ShowNovels>
+
+        <UpdatedNovels>
+            <section class="bg-white">
+                <components:title-section props="updatedNovelsTitle"></components:title-section>
+                <components:render-type-novels></components:render-type-novels>
+                <table ng-controller="updatedNovels" class="table table-hover table-update-novel align-middle">
+                    <tr ng-repeat="novel in novels">
+                        <td class="d-flex align-items-center">
+                            <a class="d-inline-block text-dark hover-t-decoration title-novel-update" title="{{novel.title}}" href="" components_name-novel=""></a>
+                            <p ng-if="novel.note != ''" class="note text-hot size-text-secondary">{{novel.note}}</p>
+                        </td>
+                        <td class="text-secondary td-secondary size-text-secondary">{{novel.chapter}}</td>
+                        <td class="text-secondary td-secondary size-text-secondary">{{novel.time}}</td>
+                    </tr>
+                </table>
+                <components:more props="updatedNovelsTitle"></components:more>
+            </section>
+        </UpdatedNovels>
+
+        <ShortNovels>
+            <section class="bg-white">
+                <components:title-section props="'TRUYỆN NGẮN'"></components:title-section>
+                <div ng-controller="shortNovels" class="d-flex flex-wrap col-short-novel row-cols-2 pb-shorts-novel">
+                    <div class="position-relative">
+                        <img ng-src="{{leftOfShortNovel.image}}" alt="" title="{{leftOfShortNovel.title}}" />
+                        <a class="d-inline-block text-white hover-t-decoration position-absolute start-0 end-0 bottom-0 p-above" title="{{leftOfShortNovel.title}}">
+                            {{leftOfShortNovel.title}}
+                        </a>
+                    </div>
+                    <div class="right-novel">
+                        <components:horizontal-decription></components:horizontal-decription>
+                    </div>
+                </div>
+            </section>
+        </ShortNovels>
+
+        <AsideComponent>
+            <aside class="max-860-w-full col-4">
+                <div class="m-content">
+                    <section class="bg-white type-novel">
+                        <components:title-section props="'THỂ LOẠI TRUYỆN'"></components:title-section>
+                        <components:table-of-list props="typeNovels"></components:table-of-list>
+                    </section>
+                    <section class="bg-white review-novel">
+                        <components:title-section props="reviewNovelsTitle"></components:title-section>
+                        <div ng-controller="reviewNovels"><components:horizontal-decription></components:horizontal-decription></div>
+                        <components:more props="reviewNovelsTitle"></components:more>
+                    </section>
+                    <content-components:novels-list ng-controller="topGoodNovels"></content-components:novels-list>
+                    <content-components:novels-list ng-controller="newUpdateNovels"></content-components:novels-list>
+                </div>
+            </aside>
+        </AsideComponent>
+
+        <NovelsList>
+            <section class="bg-white">
+                <components:title-section props="sectionTitle"></components:title-section>
+                <table class="table top-list">
+                    <tr ng-repeat="novel in novels">
+                        <td class="{{novel.cssRank}}">{{novel.rank}}</td>
+                        <td>
+                            <a class="d-inline-block text-dark hover-t-decoration" title="{{novel.title}}">{{novel.title}}</a>
+                            <div class="d-flex align-items-center view text-secondary">
+                                <i class="fa fa-eye"></i>
+                                <p>{{novel.view}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <components:more props="sectionTitle"></components:more>
+            </section>
+        </NovelsList>
+    </replace>
+</root>

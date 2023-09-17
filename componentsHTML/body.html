@@ -1,0 +1,48 @@
+<div id="my-css">
+    <header class="header">
+        <nav class="max-width-main mx-auto">
+            <div class="d-flex flex-wrap mx-nav-negative">
+                <header-components:read-novel-online></header-components:read-novel-online>
+                <header-components:items-list props="listOfTypeNovels"></header-components:items-list>
+                <header-components:items-list props="arrange"></header-components:items-list>
+                <header-components:up-load></header-components:up-load>
+                <header-components:search></header-components:search>
+                <header-components:log-in></header-components:log-in>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="max-width-main mx-auto">
+            <div class="d-flex flex-wrap mh-content-negative">
+                <main class="max-860-w-full col-8">
+                    <div class="m-content">
+                        <content-components:suggested-novels></content-components:suggested-novels>
+                        <content-components:show-novels ng-controller="selectedTranslationNovels"></content-components:show-novels>
+                        <content-components:updated-novels></content-components:updated-novels>
+                        <content-components:show-novels ng-controller="fullNovels"></content-components:show-novels>
+                        <content-components:short-novels></content-components:short-novels>
+                    </div>
+                </main>
+                <content-components:aside-component></content-components:aside-component>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="max-width-main mx-auto">
+            <div class="bg-dark p-top-novel-month">
+                <h2 class="text-white h2">Top truyện nổi bật của tháng</h2>
+                <div ng-controller="trendNovelsInMonth">
+                    <a ng-repeat="novel in novles" class="d-inline-block top-novel hover-t-decoration" href="">{{novel}}</a>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap pv-description">
+                <footer-components:left-infor-footer></footer-components:left-infor-footer>
+                <div class="max-860-w-full col-4">
+                    <p class="text-white text-center">Copy right 2021 <components:high-ligh props="highLighs[11]"></components:high-ligh></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

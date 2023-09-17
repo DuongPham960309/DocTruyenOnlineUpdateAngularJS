@@ -1,0 +1,58 @@
+<root>
+    <replace>
+        <RenderTypeNovels>
+            <div class="d-flex flex-wrap container-type-novel">
+                <a ng-repeat="type in types" class="d-block text-white hover-t-decoration" href="">{{type}}</a>
+            </div>
+        </RenderTypeNovels>
+
+        <HorizontalDecription>
+            <div ng-repeat="novel in novels" class="{{novel.cssContainer}}">
+                <img ng-src="{{novel.image}}" alt="" title="{{novel.title}}" />
+                <a class="text-dark hover-t-decoration" href="" title="{{novel.title}}">{{novel.title}}</a>
+            </div>
+        </HorizontalDecription>
+    </replace>
+
+    <replaceIsolate>
+        <ItemNav>
+            <div><p class="d-inline-block pl-item color-main-list item-main-hover">{{props}}</p></div>
+        </ItemNav>
+
+        <TableOfList>
+            <table class="{{props.cssTable}}">
+                <tr ng-repeat="row in props.rows">
+                    <td ng-repeat="column in row" class="{{column.cssTd}}" colspan="{{column.colSpan}}" title="{{column.title}}">
+                        <a class="{{column.cssLink}}" href="">
+                            <i class="{{column.cssIcon}}"></i>
+                            <div><p class="{{column.cssType}}">{{column.type}}</p></div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </TableOfList>
+
+        <TitleSection>
+            <h2><span class="hover-t-decoration" title="{{props}}">{{props}}</span> <i class="fa fa-angle-right"></i></h2>
+        </TitleSection>
+
+        <More>
+            <div class="d-flex">
+                <a class="d-flex align-items-center justify-content-center text-white mx-auto pill" href="" title="{{props}}">
+                    <p class="d-inline-block hover-t-decoration">XEM THÊM</p>
+                    <i class="d-inline-block fa fa-angle-down"></i>
+                </a>
+            </div>
+        </More>
+
+        <HighLigh>
+            <a class="text-link hover-t-decoration" title="{{props.title}}" href="">{{props.marker}}</a>
+        </HighLigh>
+    </replaceIsolate>
+
+    <normal>
+        <NameNovel>
+            {{(novel.before != "") ? (novel.before + " ") : ""}}<cite>{{novel.name}}</cite>{{(novel.after != "") ? (" " + novel.after) : ""}}
+        </NameNovel>
+    </normal>
+</root>
