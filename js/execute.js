@@ -1,5 +1,5 @@
 {
-    let path = "./componentsHTML/";
+    let path = "componentsHTML/";
     let files = ["headerComponents.html", "components.html", "contentComponents.html", "footerComponents.html"];
     let length = files.length;
     let text;
